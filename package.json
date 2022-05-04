@@ -1,0 +1,27 @@
+{
+  "name": "bloodhunt-tracker",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "rm -rf build && pkg src/cli.js --out-path build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^13.7.0",
+    "puppeteer-extra": "^3.2.3",
+    "puppeteer-extra-plugin-stealth": "^2.9.0"
+  },
+  "devDependencies": {
+    "@types/puppeteer": "^5.4.6",
+    "pkg": "^5.6.0"
+  },
+  "pkg": {
+    "scripts": [
+      "node_modules/puppeteer/lib/*.js",
+      "node_modules/puppeteer-extra-plugin-stealth/**/*.js"
+    ]
+  }
+}
