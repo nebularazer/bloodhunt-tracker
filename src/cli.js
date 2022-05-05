@@ -13,7 +13,7 @@ async function main(chromePath, interval = 2) {
     Object.entries(stats).forEach(([stat, value]) => {
         fs.writeFileSync(`${stat}.txt`, value)
     })
-    setTimeout(main, interval * 60 * 1000, interval);
+    setTimeout(main, interval * 60 * 1000, chromePath, interval);
 }
 
 (async () => {

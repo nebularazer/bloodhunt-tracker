@@ -1,10 +1,10 @@
 {
   "name": "bloodhunt-tracker",
-  "version": "0.0.1",
+  "version": "v0.0.2-alpha",
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "build": "rm -rf build && pkg src/cli.js --out-path build"
+    "build": "rm -rf build && pkg -c package.json src/cli.js --out-path build"
   },
   "keywords": [],
   "author": "",
