@@ -3,7 +3,7 @@
 Fetches [Vampire: The Masquerade - Bloodhunt](https://store.steampowered.com/app/760160/Vampire_The_Masquerade__Bloodhunt/) stats from [tracker.gg](https://tracker.gg/bloodhunt) and stores them into *.txt files for further use e.x. OBS for stream overlays.
 
 ⚠️ Currently in alpha.  
-⚠️ Stats are hardcored to [TheSpudHunter](https://www.twitch.tv/thespudhunter) in `src/stats.js`.
+⚠️ Stats are hardcoded to [TheSpudHunter](https://www.twitch.tv/thespudhunter) in `src/stats.js`.
 
 ## How it works
 
