@@ -24,9 +24,7 @@ Download the binary for your operating system from the [releases](https://github
 
 ## Build the binaries from source
 
-Requirements:
-- [nodejs](https://nodejs.org/en/) >= 16.15
-
+- requires [nodejs](https://nodejs.org/en/) >= 16.15
 - clone this repository or download the sources and unpack them
 - run `npm install` to install dependencies
 - run `npm run build` to create the binaries in the build folder
