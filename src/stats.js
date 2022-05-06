@@ -10,6 +10,7 @@ const defaultOptions = {
   playerId: '3274030920083041469',  // TheSpudHunter
   stats: ['kills', 'wins'],
   winStreak: true,
+  playlist: 'Bloodhunt_Ranked',
 }
 
 async function loadStats(chromePath = '/usr/bin/chromium-browser', options = defaultOptions) {
@@ -24,10 +25,10 @@ async function loadStats(chromePath = '/usr/bin/chromium-browser', options = def
   const content = await page.evaluate(() => document.body.innerText);
   const data = JSON.parse(content)
 
-  const stats = {}
+  const stats = options.stats.reduce((a, v) => ({...a, [v]: '0'}), {})
   for (const segment of data.data.segments) {
-    if (segment.attributes.mode === "All") {
-      for (const stat of defaultOptions.stats) {
+    if (segment.attributes.mode === "All" && segment.attributes.playlist === options.playlist) {
+      for (const stat of options.stats) {
         stats[stat] = segment.stats[stat].displayValue
       }
     }
@@ -35,7 +36,7 @@ async function loadStats(chromePath = '/usr/bin/chromium-browser', options = def
 
   if (options.winStreak) {
     // MATCHES
-    await page.goto(`https://api.tracker.gg/api/v2/bloodhunt/standard/matches/sharkmob/${options.playerId}?type=&playlist=Bloodhunt_Casual`)
+    await page.goto(`https://api.tracker.gg/api/v2/bloodhunt/standard/matches/sharkmob/${options.playerId}?playlist=${options.playlist}`)
     const content = await page.evaluate(() => document.body.innerText);
     const data = JSON.parse(content)
 
